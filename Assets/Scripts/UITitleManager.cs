@@ -11,12 +11,13 @@ public class UITitleManager : MonoBehaviour
 {
     public TMP_InputField playerNameField;
 
-    public void StartNew()
+
+    private void StartNew()
     {
         DataManager.Instance.currentPlayerName = playerNameField.text;
         SceneManager.LoadScene(1);
     }
-    public void Exit()
+    private void Exit()
     {
 
 #if UNITY_EDITOR
