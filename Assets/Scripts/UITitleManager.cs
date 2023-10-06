@@ -9,7 +9,8 @@ using UnityEditor;
 
 public class UITitleManager : MonoBehaviour
 {
-    public TMP_InputField playerNameField;
+    [SerializeField]
+    private TMP_InputField playerNameField;
 
 
     private void StartNew()
