@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveForce: 100
-  fireForce: 1000
+  fireForce: 1500
   fireDelay: 0.5
   cannonBallPrefab: {fileID: 3376565519397571984, guid: 7d59dd81f6416ea4ab2bbd6f200a80d0, type: 3}
 --- !u!108 &61750625
