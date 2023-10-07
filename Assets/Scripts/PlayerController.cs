@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
     private float movementX;
     private float movementY;
-    private bool isAlive = true;
     public float moveForce = 50;
     public float fireForce = 100;
     public float fireDelay = 1;
@@ -18,17 +17,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject cannonBallPrefab;
 
+    private bool _isAlive;
+    public bool isAlive {get{return _isAlive;}}
+
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-
+        _isAlive = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (transform.position.y < -10)
+        {
+            _isAlive = false;
+        }
     }
     void OnMove(InputValue movementValue)
     {
@@ -39,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
     void OnFire()
     {
-        if (isReadyToFire)
+        if (isReadyToFire && _isAlive)
         {
             Camera mainCamera = Camera.main;
             Vector2 screenPosition = Mouse.current.position.ReadValue();
@@ -73,9 +78,21 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-        Vector3 torqueDirection = -Vector3.Cross(movement, Vector3.up).normalized;
-        playerRb.AddTorque(Time.deltaTime * moveForce * torqueDirection);
+        if (_isAlive)
+        {
+            Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+            Vector3 torqueDirection = -Vector3.Cross(movement, Vector3.up).normalized;
+            playerRb.AddTorque(Time.deltaTime * moveForce * torqueDirection);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //check if enemy touches player
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            _isAlive = false;
+        }
 
     }
 }
