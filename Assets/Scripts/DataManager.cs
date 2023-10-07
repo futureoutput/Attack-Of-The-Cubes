@@ -10,6 +10,7 @@ public class DataManager : MonoBehaviour
     public int highScore;
     public string highScorePlayerName;
     public string currentPlayerName;
+    public int currentScore;
 
     private void Awake()
     {

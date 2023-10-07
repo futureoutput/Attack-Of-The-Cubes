@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
 
     public float moveTorque = 200;
     public float pushForce = 100;
+    public float health = 100;
+    public int scoreValue = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,14 @@ public class EnemyController : MonoBehaviour
         MoveEnemy();
     }
 
+    private void Update()
+    {
+        if (health <= 0 || transform.position.y < -10)
+        {
+            KillEnemy();
+        }
+    }
+
     public virtual void MoveEnemy()
     {
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
@@ -29,5 +39,23 @@ public class EnemyController : MonoBehaviour
         enemyRb.AddTorque(Time.deltaTime * moveTorque * torqueDirection);
         enemyRb.AddForce(Time.deltaTime * lookDirection * pushForce);
     }
+
+    private void KillEnemy()
+    {
+        DataManager.Instance.currentScore += scoreValue;
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //check if cannon ball touches enemy
+        if (collision.gameObject.CompareTag("CannonBall"))
+        {
+            float damage = collision.relativeVelocity.magnitude;
+            health -= damage;
+        }
+    }
+
+
 
 }

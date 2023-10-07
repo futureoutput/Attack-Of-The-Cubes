@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIGameplayManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private TextMeshProUGUI highScoreText;
+    [SerializeField]
+    private TextMeshProUGUI scoreText;
+    private void Start()
     {
-        
+        UpdateScore();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateScore()
     {
-        
+        scoreText.text = "Score:" + DataManager.Instance.currentScore;
+        highScoreText.text = "High Score: " + DataManager.Instance.highScorePlayerName + ": " + DataManager.Instance.highScore;
     }
-
     private void QuitToMenu()
     {
         SceneManager.LoadScene(0);
