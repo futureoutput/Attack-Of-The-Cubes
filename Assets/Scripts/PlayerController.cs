@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject cannonBallPrefab;
 
-    private bool _isAlive;
+    private bool _isAlive = true;
     public bool isAlive {get{return _isAlive;}}
 
     // Start is called before the first frame update
