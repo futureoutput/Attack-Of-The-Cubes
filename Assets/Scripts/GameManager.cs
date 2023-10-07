@@ -12,11 +12,35 @@ public class GameManager : MonoBehaviour
 
     private bool playerIsAlive;
     private bool isGameActive = true;
+
+    public GameObject[] enemyPrefabs;
+
+    private int waveNumber;
+    private float waveDelay = 10f;
+    private int maxEnemyIndexLength;
+
+    public GameObject spawner;
+    public float spawnVariance = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
-            
+        maxEnemyIndexLength = enemyPrefabs.Length;
+        waveNumber = 0;
+        StartCoroutine(WaveTimer());  
     }
+
+    IEnumerator WaveTimer()
+    {
+        waveNumber++;
+        SpawnEnemyWave(waveNumber,waveNumber);
+        yield return new WaitForSeconds(waveDelay);
+        if (isGameActive)
+        {
+            StartCoroutine(WaveTimer());
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -34,5 +58,34 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = false;
         gameOverText.gameObject.SetActive(true);
+    }
+
+    void SpawnEnemyWave(int enemyCount, int difficulty) {
+        int i = 0;
+        int enemyIndex;
+
+        //ensure prefab array stays within bounds
+        int maxIndex = difficulty;
+        if (maxEnemyIndexLength < difficulty)
+        {
+            maxIndex = maxEnemyIndexLength;
+        }
+
+        while (i < enemyCount)
+        {
+            enemyIndex = Random.Range(0, maxIndex);
+            i = i + enemyIndex + 1;
+            Instantiate(enemyPrefabs[enemyIndex], GenerateSpawnPosition(), Random.rotation);
+        }
+        
+    }
+
+    Vector3 GenerateSpawnPosition()
+    {
+        Vector3 position = spawner.transform.position;
+        position.x = position.x + Random.Range(-spawnVariance, spawnVariance);
+        //position.y = position.y + Random.Range(-spawnVariance, spawnVariance);
+        position.z = position.z + Random.Range(-spawnVariance, spawnVariance);
+        return position;
     }
 }
