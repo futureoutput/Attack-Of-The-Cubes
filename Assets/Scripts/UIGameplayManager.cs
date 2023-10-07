@@ -17,7 +17,7 @@ public class UIGameplayManager : MonoBehaviour
         
     }
 
-    public void QuitToMenu()
+    private void QuitToMenu()
     {
         SceneManager.LoadScene(0);
     }
