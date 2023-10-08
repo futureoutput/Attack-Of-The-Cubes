@@ -6,15 +6,25 @@ using TMPro;
 
 public class UIGameplayManager : MonoBehaviour
 {
+    private int score;
+
     [SerializeField]
     private TextMeshProUGUI highScoreText;
     [SerializeField]
     private TextMeshProUGUI scoreText;
     private void Start()
     {
+        score = DataManager.Instance.currentScore;
         UpdateScore();
     }
 
+    private void Update()
+    {
+        if (DataManager.Instance.currentScore != score)
+        {
+            UpdateScore();
+        }
+    }
     public void UpdateScore()
     {
         scoreText.text = "Score:" + DataManager.Instance.currentScore;

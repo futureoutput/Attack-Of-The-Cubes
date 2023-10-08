@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject spawner;
     public float spawnVariance = 10f;
 
+
     // Start is called before the first frame update
     void Start()
     {
