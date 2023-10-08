@@ -11,8 +11,13 @@ public class UITitleManager : MonoBehaviour
 {
     [SerializeField]
     private TMP_InputField playerNameField;
+    [SerializeField]
+    private TextMeshProUGUI highScoreText;
 
-
+    private void Start()
+    {
+        highScoreText.text = "High Score: " + DataManager.Instance.highScorePlayerName + ": " + DataManager.Instance.highScore;
+    }
     private void StartNew()
     {
         DataManager.Instance.currentPlayerName = playerNameField.text;

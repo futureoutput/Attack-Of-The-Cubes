@@ -12,8 +12,11 @@ public class UIGameplayManager : MonoBehaviour
     private TextMeshProUGUI highScoreText;
     [SerializeField]
     private TextMeshProUGUI scoreText;
+    [SerializeField]
+    private TextMeshProUGUI playerNameText;
     private void Start()
     {
+        playerNameText.text = DataManager.Instance.currentPlayerName;
         score = DataManager.Instance.currentScore;
         UpdateScore();
     }

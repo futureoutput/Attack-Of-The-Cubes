@@ -59,6 +59,13 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = false;
         gameOverText.gameObject.SetActive(true);
+        if (DataManager.Instance.currentScore> DataManager.Instance.highScore)
+        {
+            DataManager.Instance.highScore = DataManager.Instance.currentScore;
+            DataManager.Instance.highScorePlayerName = DataManager.Instance.currentPlayerName;
+            DataManager.Instance.SaveHighScore();
+        }
+        
     }
 
     void SpawnEnemyWave(int enemyCount, int difficulty) {

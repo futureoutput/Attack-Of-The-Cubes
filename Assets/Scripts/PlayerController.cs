@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
                 mousePosition = hit.point;
 
                 Vector3 fireVector = (mousePosition - transform.position).normalized;
-                GameObject newCannonBall = Instantiate(cannonBallPrefab, transform.position + Vector3.up, Quaternion.identity);
+                GameObject newCannonBall = Instantiate(cannonBallPrefab, transform.position + fireVector, Quaternion.identity);
                 newCannonBall.GetComponent<Rigidbody>().AddForce(fireVector * fireForce);
                 isReadyToFire = false;
                 StartCoroutine(CannonBallTimer());
