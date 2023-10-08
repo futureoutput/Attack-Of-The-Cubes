@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShuffleEnemeyController : EnemyController
+// INHERITANCE
 {
     public float shuffleTime = 4f;
     private float timePassedSinceLastShuffle = 0;
 
-
+    // POLYMORPHISM
     public override void MoveEnemy()
     {
         timePassedSinceLastShuffle += Time.deltaTime;

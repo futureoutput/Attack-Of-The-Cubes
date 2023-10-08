@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource audioSource;
 
+    // ENCAPSULATION
     private bool _isAlive = true;
     public bool isAlive {get{return _isAlive;}}
 

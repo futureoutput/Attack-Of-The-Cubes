@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HopperController : EnemyController
+// INHERITANCE
 {
     public float jumpForce = 10f;
 

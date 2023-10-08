@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     void GameOver()
     {
         isGameActive = false;
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour
         
     }
 
+    // ABSTRACTION
     void SpawnEnemyWave(int enemyCount, int difficulty) {
         int i = 0;
         int enemyIndex;
@@ -92,6 +94,7 @@ public class GameManager : MonoBehaviour
         
     }
 
+    // ABSTRACTION
     Vector3 GenerateSpawnPosition()
     {
         Vector3 position = spawner.transform.position;

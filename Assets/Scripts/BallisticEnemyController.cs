@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BallisticEnemyController : EnemyController
+// INHERITANCE
 {
     public float launchForce = 1;
     private void Start()

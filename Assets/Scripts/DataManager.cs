@@ -34,6 +34,7 @@ public class DataManager : MonoBehaviour
         public string playerName;
     }
 
+    // ABSTRACTION
     public void SaveHighScore()
     {
         SaveData data = new SaveData();
@@ -45,6 +46,7 @@ public class DataManager : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
+    // ABSTRACTION
     public void LoadHighScore()
     {
         string path = Application.persistentDataPath + "/savefile.json";

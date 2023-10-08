@@ -32,6 +32,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     public virtual void MoveEnemy()
     {
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
@@ -40,6 +41,7 @@ public class EnemyController : MonoBehaviour
         enemyRb.AddForce(Time.deltaTime * lookDirection * pushForce);
     }
 
+    // ABSTRACTION
     private void KillEnemy()
     {
         if (DataManager.Instance.isGameActive)
