@@ -11,9 +11,5 @@ public class BallisticEnemyController : EnemyController
         Vector3 launchV = (-transform.position + player.transform.position)+magVect*Vector3.up;
         enemyRb.AddForce(launchV* launchForce, ForceMode.Impulse);
     }
-    public override void MoveEnemy()
-    {
-        
-        base.MoveEnemy(); // run method from base class
-    }
+
 }

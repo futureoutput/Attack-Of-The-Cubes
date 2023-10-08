@@ -290,6 +290,7 @@ MonoBehaviour:
   player: {fileID: 61750619}
   enemyPrefabs:
   - {fileID: 1739441932409247043, guid: db17912b5e29d6e47a743dbcb47e191e, type: 3}
+  - {fileID: 1739441932409247043, guid: 1e0871d815fd0284e9e1e7120bf0358f, type: 3}
   - {fileID: 1739441932409247043, guid: 45bb6bdfd968e0542be6d0239504a164, type: 3}
   - {fileID: 1739441932409247043, guid: 039f135cbf79dab459f2849a2aad4e0b, type: 3}
   waveDelay: 4

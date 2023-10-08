@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8687395354145744899}
   - component: {fileID: 28142166877671469}
   - component: {fileID: 5952869503688429632}
-  - component: {fileID: 6383096876061337227}
+  - component: {fileID: 3965901349606226308}
   m_Layer: 0
-  m_Name: BallisticEnemy
+  m_Name: ShuffleEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e78a4a013e4fbd54c957fbd53195b81b, type: 2}
+  - {fileID: 2100000, guid: 2f9ba5f1c91805d4ba48b1bf70c8bcad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,7 +93,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739441932409247043}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ee0a95dbd12a984448eb3f8b2456484d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -116,8 +116,8 @@ Rigidbody:
   m_GameObject: {fileID: 1739441932409247043}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.3
+  m_AngularDrag: 0.3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &6383096876061337227
+--- !u!114 &3965901349606226308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,11 +143,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1739441932409247043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61ac12975c7750e48bf6e70453aa1bc6, type: 3}
+  m_Script: {fileID: 11500000, guid: de1303a4162b17c48a3dc47470c920b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTorque: 400
-  pushForce: 0
-  health: 100
-  scoreValue: 40
-  launchForce: 0.29
+  moveTorque: 20
+  pushForce: 20
+  health: 200
+  scoreValue: 20
+  shuffleTime: 4
