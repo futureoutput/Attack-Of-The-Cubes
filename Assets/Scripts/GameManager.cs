@@ -35,7 +35,9 @@ public class GameManager : MonoBehaviour
     IEnumerator WaveTimer()
     {
         waveNumber++;
-        SpawnEnemyWave(waveNumber,waveNumber);
+        int numberOfEnemys = 1 + waveNumber / 4;
+        int enemyDiff = waveNumber / 4;
+        SpawnEnemyWave(numberOfEnemys, enemyDiff);
         yield return new WaitForSeconds(waveDelay);
         if (isGameActive)
         {

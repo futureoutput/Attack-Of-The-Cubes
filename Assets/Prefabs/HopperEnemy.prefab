@@ -149,5 +149,5 @@ MonoBehaviour:
   moveTorque: 500
   pushForce: 300
   health: 300
-  scoreValue: 20
+  scoreValue: 30
   jumpForce: 10
