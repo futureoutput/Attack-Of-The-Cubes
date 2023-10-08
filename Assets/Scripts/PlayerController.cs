@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private GameObject cannonBallPrefab;
+    [SerializeField]
+    private AudioClip cannonShootSound;
+
+    private AudioSource audioSource;
 
     private bool _isAlive = true;
     public bool isAlive {get{return _isAlive;}}
@@ -24,6 +28,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         _isAlive = true;
     }
 
@@ -59,6 +64,7 @@ public class PlayerController : MonoBehaviour
             // Perform a raycast and check if it hits anything
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
+                audioSource.PlayOneShot(cannonShootSound, 1.0f);
                 // Get the point where the ray hits
                 mousePosition = hit.point;
 
