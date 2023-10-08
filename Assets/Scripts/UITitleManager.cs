@@ -17,6 +17,9 @@ public class UITitleManager : MonoBehaviour
     private void Start()
     {
         highScoreText.text = "High Score: " + DataManager.Instance.highScorePlayerName + ": " + DataManager.Instance.highScore;
+        playerNameField.text = DataManager.Instance.currentPlayerName;
+
+
     }
     private void StartNew()
     {
