@@ -568,6 +568,7 @@ MonoBehaviour:
   fireForce: 1500
   fireDelay: 0.5
   cannonBallPrefab: {fileID: 3376565519397571984, guid: 7d59dd81f6416ea4ab2bbd6f200a80d0, type: 3}
+  cannonShootSound: {fileID: 8300000, guid: 004ffef03286be545843a2d8e55f0a32, type: 3}
 --- !u!54 &61750626
 Rigidbody:
   m_ObjectHideFlags: 0
