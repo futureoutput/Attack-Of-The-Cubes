@@ -16,7 +16,7 @@ public class UIGameplayManager : MonoBehaviour
     private TextMeshProUGUI playerNameText;
     private void Start()
     {
-        playerNameText.text = DataManager.Instance.currentPlayerName;
+        playerNameText.text = "Player: " + DataManager.Instance.currentPlayerName;
         score = DataManager.Instance.currentScore;
         UpdateScore();
     }

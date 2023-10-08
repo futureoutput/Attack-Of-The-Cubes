@@ -11,7 +11,7 @@ public class DataManager : MonoBehaviour
     public string highScorePlayerName;
     public string currentPlayerName;
     public int currentScore;
-
+    public bool isGameActive;
     private void Awake()
     {
         if (Instance == null)

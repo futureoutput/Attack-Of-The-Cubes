@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemyPrefabs;
 
     private int waveNumber;
-    private float waveDelay = 10f;
+    public float waveDelay = 10f;
     private int maxEnemyIndexLength;
 
     public GameObject spawner;
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DataManager.Instance.isGameActive = true;
         maxEnemyIndexLength = enemyPrefabs.Length;
         waveNumber = 0;
         StartCoroutine(WaveTimer());  
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         isGameActive = false;
+        DataManager.Instance.isGameActive = false;
         gameOverText.gameObject.SetActive(true);
         if (DataManager.Instance.currentScore> DataManager.Instance.highScore)
         {

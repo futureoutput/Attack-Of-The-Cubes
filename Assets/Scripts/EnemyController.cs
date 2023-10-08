@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private Rigidbody enemyRb;
-    private GameObject player;
+    protected Rigidbody enemyRb;
+    protected GameObject player;
 
     public float moveTorque = 200;
     public float pushForce = 100;
@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
     public int scoreValue = 10;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
@@ -42,7 +42,10 @@ public class EnemyController : MonoBehaviour
 
     private void KillEnemy()
     {
-        DataManager.Instance.currentScore += scoreValue;
+        if (DataManager.Instance.isGameActive)
+        {
+            DataManager.Instance.currentScore += scoreValue;
+        }
         Destroy(gameObject);
     }
 
@@ -52,6 +55,7 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("CannonBall"))
         {
             float damage = collision.relativeVelocity.magnitude;
+            Debug.Log(damage);
             health -= damage;
         }
     }
